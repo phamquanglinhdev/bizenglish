@@ -91,9 +91,9 @@
             </div>
             <hr>
             <div class="h2 p5 w-100 content-wrapper">Phương pháp học</div>
-{{--            <div>--}}
-{{--                {!! $course -> learning !!}--}}
-{{--            </div>--}}
+            <div>
+                {!! $course -> learning !!}
+            </div>
             <hr>
             <div class="h2 p5 w-100">Nội dung khóa học</div>
             <div id="preview">

@@ -28,14 +28,14 @@
                 <div class=" rounded  p-3">
                     <div class="h4"><i class="fas fa-book pb-2"></i> Giới thiệu</div>
                     <div>{!! $prolife->level !!}</div>
-                    <div class="h4"><i class="fas fa-clock"></i> Thời gian nhận lớp</div>
-                    <div class="teaching" id="teaching">
-                        {!! $prolife->celendar !!}
-                    </div>
-                    <div class="h4 py-3"><i class="fas fa-money-bill-wave"></i></i> Học phí</div>
-                    <div class="salary">
-                        {!! $prolife->salary !!}
-                    </div>
+{{--                    <div class="h4"><i class="fas fa-clock"></i> Thời gian nhận lớp</div>--}}
+{{--                    <div class="teaching" id="teaching">--}}
+{{--                        {!! $prolife->celendar !!}--}}
+{{--                    </div>--}}
+{{--                    <div class="h4 py-3"><i class="fas fa-money-bill-wave"></i></i> Học phí</div>--}}
+{{--                    <div class="salary">--}}
+{{--                        {!! $prolife->salary !!}--}}
+{{--                    </div>--}}
                 </div>
             </div>
         </div>
