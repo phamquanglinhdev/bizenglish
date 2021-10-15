@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 use App\Http\Controllers\apps\DashboardController;
 use App\Http\Controllers\apps\LogController;
@@ -68,8 +68,8 @@ Route::group(['prefix'=>'apps','middleware'=>'app'], function () {
     Route::post('/log/store',[LogController::class,'store'])->name("app.log.store");
     //End Log
     Route::get('/room',[RoomController::class,'index'])->name("app.room.list");
-    Route::get('/room/create',[RoomController::class,'create'])->name("app.room.create");
-    Route::post('/room/store',[RoomController::class,'store'])->name("app.room.store");
+    Route::get('/room/create/',[RoomController::class,'create'])->name("app.room.create");
+    Route::post('/room/store/',[RoomController::class,'store'])->name("app.room.store");
     Route::get('/room/edit/{id}',[RoomController::class,'edit'])->name("app.room.edit");
     //student
     Route::resource('/student', StudentController::class);
