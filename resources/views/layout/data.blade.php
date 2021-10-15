@@ -62,7 +62,7 @@
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                              data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="{{route("app.room.create")}}}">Tạo lớp học</a>
+                                <a class="nav-link" href="{{route("app.room.create")}}">Tạo lớp học</a>
                                 <a class="nav-link" href="{{route("app.room.list")}}">Danh sách lớp học</a>
                             </nav>
                         </div>
