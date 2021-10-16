@@ -54,7 +54,7 @@
                                             <a class="w-100 btn btn-warning btn-block" href="{{route("app.room.edit",$student->id)}}">Sửa</a>
                                         </td>
                                         <td>
-                                            <form action="{{ route('app.room.destroy', ['room' => $room->id]) }}" method="POST">
+                                            <form action="{{ route('app.room.destroy', ['id' => $room->id]) }}" method="POST">
                                                 @csrf
 
                                                 @method('DELETE')
