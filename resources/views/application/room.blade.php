@@ -23,6 +23,7 @@
                             <th>Học phí 1 giờ</th>
                             <th>Tài liệu</th>
                             <th>Ghi chú</th>
+                            <th>Hành động</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -46,8 +47,21 @@
                                         <a href="{{$room->document}}">{{$room->document}}</a>
                                     </td>
                                     <td>
-                                        <a href="{{$room->comment}}">{{$room->comment}}</a>
+                                        <blockquote>{{$room->comment}}</blockquote>
                                     </td>
+                                    @if(backpack_user()->role == 0)
+                                        <td>
+                                            <a class="w-100 btn btn-warning btn-block" href="{{route("student.edit",$student->id)}}">Sửa</a>
+                                        </td>
+                                        <td>
+                                            <form action="{{ route('student.destroy', ['student' => $student->id]) }}" method="POST">
+                                                @csrf
+
+                                                @method('DELETE')
+                                                <button type="submit" class="w-100 btn btn-danger btn-block">Xoá</button>
+                                            </form>
+                                        </td>
+                                    @endif
                                 </tr>
                             @endif
                         @endforeach
