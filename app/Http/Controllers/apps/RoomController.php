@@ -26,10 +26,10 @@ class RoomController extends Controller
     public function edit($id){
         $temp=[];
         $old= Room::where("id",'=',$id)->first();
-        $listTeacherID = $old->getTeacher()->get(['id']);
-        foreach ($listTeacherID as $item){
-            $temp[] = $item->id;
-        }
+//        $listTeacherID = $old->getTeacher()->get(['id']);
+//        foreach ($listTeacherID as $item){
+//            $temp[] = $item->id;
+//        }
         $old->teachers = $temp;
         $temp=[];
         $listStudentID = $old->getStudent()->get(['id']);
