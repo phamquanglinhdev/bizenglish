@@ -71,6 +71,7 @@ Route::group(['prefix'=>'apps','middleware'=>'app'], function () {
     Route::get('/room/create/',[RoomController::class,'create'])->name("app.room.create");
     Route::post('/room/store/',[RoomController::class,'store'])->name("app.room.store");
     Route::get('/room/edit/{id}',[RoomController::class,'edit'])->name("app.room.edit");
+    Route::delete('/room/{id}',[RoomController::class,'delete'])->name("app.room.destroy");
     //student
     Route::resource('/student', StudentController::class);
     Route::resource('/teacher', TeacherController::class);

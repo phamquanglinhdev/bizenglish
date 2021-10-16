@@ -73,5 +73,9 @@ class RoomController extends Controller
 
         return $this->index();
     }
+    public function destroy($id){
+        $room =  Room::find($id)->delete();
+        return $this->index();
+    }
 
 }

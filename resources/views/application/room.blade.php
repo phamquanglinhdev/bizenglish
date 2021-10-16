@@ -23,7 +23,7 @@
                             <th>Học phí 1 giờ</th>
                             <th>Tài liệu</th>
                             <th>Ghi chú</th>
-                            <th>Hành động</th>
+                            <th colspan="2">Hành động</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -51,10 +51,10 @@
                                     </td>
                                     @if(backpack_user()->role == 0)
                                         <td>
-                                            <a class="w-100 btn btn-warning btn-block" href="{{route("student.edit",$student->id)}}">Sửa</a>
+                                            <a class="w-100 btn btn-warning btn-block" href="{{route("app.room.edit",$student->id)}}">Sửa</a>
                                         </td>
                                         <td>
-                                            <form action="{{ route('student.destroy', ['student' => $student->id]) }}" method="POST">
+                                            <form action="{{ route('app.room.destroy', ['room' => $room->id]) }}" method="POST">
                                                 @csrf
 
                                                 @method('DELETE')
