@@ -70,7 +70,8 @@ Route::group(['prefix'=>'apps','middleware'=>'app'], function () {
     Route::get('/room',[RoomController::class,'index'])->name("app.room.list");
     Route::get('/room/create/',[RoomController::class,'create'])->name("app.room.create");
     Route::post('/room/store/',[RoomController::class,'store'])->name("app.room.store");
-    Route::get('/room/edit/{id}',[RoomController::class,'edit'])->name("app.room.edit");
+    Route::get('/room/edit/{id}',[RoomController::class,'edit','id'])->name("app.room.edit");
+    Route::put('/room/edit/{id}',[RoomController::class,'update','id'])->name("app.room.update");
     Route::delete('/room/{id}',[RoomController::class,'destroy','id'])->name("app.room.destroy");
     //student
     Route::resource('/student', StudentController::class);

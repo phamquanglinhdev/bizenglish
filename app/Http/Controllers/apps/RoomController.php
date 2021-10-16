@@ -26,10 +26,10 @@ class RoomController extends Controller
     public function edit($id){
         $temp=[];
         $old= Room::where("id",'=',$id)->first();
-//        $listTeacherID = $old->getTeacher()->get(['id']);
-//        foreach ($listTeacherID as $item){
-//            $temp[] = $item->id;
-//        }
+        $listTeacherID = $old->getTeacher()->get();
+        foreach ($listTeacherID as $item){
+            $temp[] = $item->id;
+        }
         $old->teachers = $temp;
         $temp=[];
         $listStudentID = $old->getStudent()->get(['id']);
@@ -42,6 +42,37 @@ class RoomController extends Controller
         return view("application.createroom", ['old'=>$old,'students' => $student, 'teachers' => $teacher]);
 
     }
+
+    public function update(Request  $request,$id){
+        DB::table('room_teacher')->where("room_id",'=',$id)->delete();
+        DB::table('room_student')->where("room_id",'=',$id)->delete();
+        $data = [
+            'staff_id'=>backpack_user()->id,
+            'name'=>$request->name,
+            'salary'=>$request->salary,
+            'time'=>$request->time,
+            'document'=>$request->document,
+            'comment'=>$request->comment,
+        ];
+        $updateRoom = Room::find($id)->update($data);
+        foreach ($request->teacher_id as $teacher_id) {
+            $teacher = [
+                'room_id' => $id,
+                'teacher_id' => $teacher_id
+            ];
+            DB::table('room_teacher')->insert($teacher);
+        }
+
+        foreach ($request->student_id as $student_id) {
+            $student = [
+                'room_id' => $id,
+                'student_id' => $student_id
+            ];
+            DB::table('room_student')->insert($student);
+        }
+        return $this->index();
+    }
+
     public function store(Request $request)
     {
         $data = [

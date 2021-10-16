@@ -51,7 +51,7 @@
                                     </td>
                                     @if(backpack_user()->role == 0)
                                         <td>
-                                            <a class="w-100 btn btn-warning btn-block" href="{{route("app.room.edit",$student->id)}}">Sửa</a>
+                                            <a class="w-100 btn btn-warning btn-block" href="{{route("app.room.edit",$room->id)}}">Sửa</a>
                                         </td>
                                         <td>
                                             <form action="{{ route('app.room.destroy', ['id' => $room->id]) }}" method="POST">

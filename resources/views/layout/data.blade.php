@@ -137,8 +137,10 @@
                 </div>
             </div>
             <div class="sb-sidenav-footer">
-                <div class="small">Logged in as:</div>
-                {{backpack_user()->name}}
+                <div class="small">Đăng nhập bằng: {{backpack_user()->name}}</div>
+                <div><a class="text-danger btn link-style-none" href="{{route("backpack.auth.logout")}}">Đăng xuất</a></div>
+                <div><a class="text-primary btn link-style-none" href="{{route("backpack.dashboard")}}">Về Trang Admin</a></div>
+                <div><a class="text-success btn link-style-none" href="{{route("index")}}">Về Trang Chủ</a></div>
             </div>
         </nav>
     </div>

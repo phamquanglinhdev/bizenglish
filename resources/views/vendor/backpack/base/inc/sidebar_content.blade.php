@@ -27,3 +27,4 @@
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('page') }}'><i class='nav-icon la la-pager'></i>Các trang tĩnh</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('comment') }}'>
         <i class='nav-icon la la-star'></i>{{backpack_user()->role==0 ?'Đánh giá BizEnglish':'Đánh giá giáo viên '.backpack_user()->name}}</a></li>
+<li class='nav-item'><a class='nav-link' href='{{route("app.index")}}'><i class='nav-icon  la la-braille'></i>Ứng dụng</a></li>

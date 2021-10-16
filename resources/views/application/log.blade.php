@@ -31,7 +31,7 @@
                                 <tr>
                                     <td>{{$log->getUsers()->first()->name}}</td>
                                     <td>{{$log->updated_at}}</td>
-                                    <td>{{$log->getRooms()->first()->name}}</td>
+{{--                                    <td>{{$log->getRooms()->first()->name}}</td>--}}
                                     <td>{{$log->lesson_name}}</td>
                                     <td>{{$log->duration}}</td>
                                     <td>{{number_format($log->salary)}} đ</td>

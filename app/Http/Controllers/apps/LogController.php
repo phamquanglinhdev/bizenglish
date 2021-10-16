@@ -18,6 +18,7 @@ class LogController extends Controller
             $logs = Log::where('user_id', '=', backpack_user()->id)->get();
             return view("application.log", ['logs' => $logs]);
         }
+
     }
 
     public function create()
