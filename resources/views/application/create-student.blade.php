@@ -6,8 +6,8 @@
             <li class="breadcrumb-item active">Dành cho nhân viên</li>
         </ol>
     </div>
-    <div class="container-fluid bg-light">
-        <form
+    <div class="container-fluid ">
+        <form class="px-2 col-lg-6 bg-light"
             @if(isset($old->id))
             action="{{route("student.update",$old->id)}}"
             @else

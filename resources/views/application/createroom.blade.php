@@ -9,10 +9,10 @@
     </div>
     <div class="container-fluid bg-light">
         @if(isset($old))
-            <form action="{{route("app.room.update",$old->id)}}" method="post">
+            <form class="px-2 col-lg-6 bg-light" action="{{route("app.room.update",$old->id)}}" method="post">
                 {{ method_field('PUT') }}
         @else
-            <form action="{{route("app.room.store")}}" method="post">
+            <form class="px-2 col-lg-6 bg-light" action="{{route("app.room.store")}}" method="post">
         @endif
         @csrf
         <div class="form-group mb-3">
