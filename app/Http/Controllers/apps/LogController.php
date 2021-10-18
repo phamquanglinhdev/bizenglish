@@ -5,6 +5,7 @@ namespace App\Http\Controllers\apps;
 use App\Http\Controllers\Controller;
 use App\Models\Log;
 use App\Models\Room;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class LogController extends Controller
@@ -24,6 +25,7 @@ class LogController extends Controller
     public function create()
     {
         $tmp = [];
+        $partner = User::where("role","=",3)->get();
         $rooms = Room::get();
         foreach ($rooms as $key => $room) {
             $teacher_ids = $room->getTeacher()->get();
@@ -33,7 +35,8 @@ class LogController extends Controller
                 }
             }
         }
-        return view("application.checkin",['rooms'=>$tmp]);
+//        return $partner;
+        return view("application.checkin",['rooms'=>$tmp,'partners'=>$partner]);
     }
 
     public function store(Request $request)
@@ -42,13 +45,19 @@ class LogController extends Controller
         $time = explode(" ", $request->duration)[0] / 60;
         $data = [
             'user_id' => backpack_user()->id,
+            'partner_id' =>$request->partner_id,
             'room_id' => $request->room_id,
+            'day_log' => $request->day_log,
+            'time_log' => $request->time,
             'lesson_name' => $request->lesson_name,
             'duration' => $request->duration,
-            'salary' => $time * $room->salary,
+            'content' => $request->contents,
+            'rate_per_hour' => $request->rate_per_hour,
+            'rate_for_class' => $request->rate_for_class,
             'comment' => $request->comment,
         ];
         Log::create($data);
-        return $this->index();
+//        return $this->index();
+        return $request;
     }
 }

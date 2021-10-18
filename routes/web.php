@@ -2,7 +2,8 @@
 
 use App\Http\Controllers\apps\DashboardController;
 use App\Http\Controllers\apps\LogController;
-use App\Http\Controllers\apps\RoomController;
+    use App\Http\Controllers\apps\PartnerController;
+    use App\Http\Controllers\apps\RoomController;
 use App\Http\Controllers\apps\StudentController;
 use App\Http\Controllers\apps\TeacherController;
 use App\Http\Controllers\BookingController;
@@ -76,4 +77,10 @@ Route::group(['prefix'=>'apps','middleware'=>'app'], function () {
     //student
     Route::resource('/student', StudentController::class);
     Route::resource('/teacher', TeacherController::class);
+    Route::get('/account/create', [StudentController::class,'createAccount'])->name("app.staccount.create");
+    Route::post('/account/store', [StudentController::class,'storeAccount'])->name("app.staccount.store");
+    //Partner
+    Route::get('/partner',[PartnerController::class,'index'])->name("app.partner.index");
+    Route::get('/partner/create',[PartnerController::class,'create'])->name("app.partner.create");
+    Route::post('/partner/store',[PartnerController::class,'store'])->name("app.partner.store");
 });

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Student;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class StudentController extends Controller
 {
@@ -118,5 +119,24 @@ class StudentController extends Controller
     {
         Student::where('id','=',$id)->delete();
         return $this->index();
+    }
+    public function createAccount(){
+        return view("application.studentaccount");
+    }
+    public function storeAccount(Request $request){
+        $check = User::where("email",'=',$request->email)->first();
+        if(isset($check->email)){
+            return $this->create();
+        }
+        $data = [
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'role'=>2,
+            'avatar'=>$request->avatar,
+            'phone'=>$request->phone,
+            'password'=>Hash::make($request->email)
+        ];
+        User::create($data);
+        return $this->create();
     }
 }

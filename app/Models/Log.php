@@ -16,4 +16,7 @@ class Log extends Model
     public function getUsers(){
         return $this->belongsTo(User::class,'user_id','id');
     }
+    public function getPartner(){
+        return $this->belongsTo(User::class,'partner_id','id');
+    }
 }

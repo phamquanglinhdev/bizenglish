@@ -16,12 +16,18 @@
                     <table id="datatablesSimple">
                         <thead>
                         <tr>
+                            <th>Ngày dạy</th>
+                            <th>Khung giờ dạy</th>
                             <th>Giáo viên</th>
-                            <th>Mốc Thời gian</th>
+                            <th>Đối tác</th>
                             <th>Lớp học</th>
                             <th>Tên bài học</th>
+                            <th>Nội dung</th>
                             <th>Thời lượng</th>
-                            <th>Thù lao tương ứng</th>
+                            @if(backpack_user()->role <= 1)
+                                <th>Rate Per Hour</th>
+                                <th>Rate For Clas</th>
+                            @endif
                             <th>Comment</th>
                         </tr>
                         </thead>
@@ -29,12 +35,18 @@
                         @foreach($logs as $log)
                             @if(isset($log->lesson_name))
                                 <tr>
+                                    <td>{{date_format(date_create($log->day_log),"d-m-Y")}}</td>
+                                    <td>{{$log->time_log}}</td>
                                     <td>{{$log->getUsers()->first()->name}}</td>
-                                    <td>{{$log->updated_at}}</td>
-{{--                                    <td>{{$log->getRooms()->first()->name}}</td>--}}
+                                    <td>{{$log->getPartner()->first()->name}}</td>
+                                    <td>{{$log->getRooms()->first()->name}}</td>
                                     <td>{{$log->lesson_name}}</td>
+                                    <td>{{$log->content}}</td>
                                     <td>{{$log->duration}}</td>
-                                    <td>{{number_format($log->salary)}} đ</td>
+                                    @if(backpack_user()->role <= 1)
+                                        <td>{{$log->rate_per_hour}}</td>
+                                        <td>{{$log->rate_for_class}}</td>
+                                    @endif
                                     <td>{{$log->comment}}</td>
                                 </tr>
                             @endif

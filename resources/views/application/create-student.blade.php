@@ -30,6 +30,7 @@
                             @endif
                         @endforeach
                     </select>
+                    <small>Học sinh chưa có trong danh sách ? <a href="{{route("app.staccount.create")}}">Tạo ngay</a></small>
                 </div>
             @endif
             <div class="form-check">

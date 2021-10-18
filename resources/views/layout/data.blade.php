@@ -18,7 +18,7 @@
 <body class="sb-nav-fixed">
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
     <!-- Navbar Brand-->
-    <a class="navbar-brand ps-3" href="#">Biz Data</a>
+    <a class="navbar-brand ps-3" href="{{route("app.index")}}">Biz Data</a>
     <!-- Sidebar Toggle-->
     <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
             class="fas fa-bars"></i></button>
@@ -80,10 +80,27 @@
                             <a class="nav-link" href="{{route('student.index')}}">Hổ sơ các học sinh</a>
                             @if(backpack_user()->role==0)
                                 <a class="nav-link" href="{{route("student.create")}}">Tạo hồ sơ học sinh</a>
+                                <a class="nav-link" href="{{route("app.staccount.create")}}">Tạo tài khoản học sinh</a>
                             @endif
                         </nav>
                     </div>
-
+                    @if(backpack_user()->role==0)
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#partner"
+                               aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Đối tác
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="partner" aria-labelledby="headingOne"
+                                 data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="{{route('app.partner.index')}}">Hổ sơ các đối tác</a>
+                                    @if(backpack_user()->role==0)
+                                        <a class="nav-link" href="{{route("app.partner.create")}}">Tạo hồ sơ đối tác</a>
+                                    @endif
+                                </nav>
+                            </div>
+                    @endif
                     <div class="sb-sidenav-menu-heading">Hành động</div>
                     <a class="nav-link" href="{{route("app.log.create")}}">
                         <div class="sb-nav-link-icon"><i class="fas fa-check"></i></div>
@@ -138,8 +155,10 @@
             </div>
             <div class="sb-sidenav-footer">
                 <div class="small">Đăng nhập bằng: {{backpack_user()->name}}</div>
-                <div><a class="text-danger btn link-style-none" href="{{route("backpack.auth.logout")}}">Đăng xuất</a></div>
-                <div><a class="text-primary btn link-style-none" href="{{route("backpack.dashboard")}}">Về Trang Admin</a></div>
+                <div><a class="text-danger btn link-style-none" href="{{route("backpack.auth.logout")}}">Đăng xuất</a>
+                </div>
+                <div><a class="text-primary btn link-style-none" href="{{route("backpack.dashboard")}}">Về Trang
+                        Admin</a></div>
                 <div><a class="text-success btn link-style-none" href="{{route("index")}}">Về Trang Chủ</a></div>
             </div>
         </nav>

@@ -17,12 +17,18 @@ class CreateLogsTable extends Migration
             $table->id();
             $table->unsignedBigInteger("room_id");
             $table->unsignedBigInteger("user_id");
+            $table->unsignedBigInteger("partner_id")->nullable();
             $table->string("lesson_name");
+            $table->string("day_log");
+            $table->string("time_log");
+            $table->string("content");
             $table->string("duration");
-            $table->string("salary");
+            $table->integer("rate_per_hour");
+            $table->integer("rate_for_class");
             $table->string("comment")->nullable();
             $table->foreign("room_id")->references("id")->on("rooms");
             $table->foreign("user_id")->references("id")->on("users");
+            $table->foreign("partner_id")->references("id")->on("users");
             $table->timestamps();
         });
     }
