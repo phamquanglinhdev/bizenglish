@@ -49,7 +49,7 @@
                 <div class="nav">
                     @if(backpack_user()->role==0)
                         <div class="sb-sidenav-menu-heading">Thống kê</div>
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{route("app.index")}}">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Bảng điều khiển
                         </a>
