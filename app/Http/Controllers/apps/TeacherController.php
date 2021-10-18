@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\apps;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class TeacherController extends Controller
@@ -10,11 +11,12 @@ class TeacherController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        $teachers = User::where("role","=",1)->get();
+        return view("application.teacher",['teachers'=>$teachers]);
     }
 
     /**
@@ -42,11 +44,12 @@ class TeacherController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function show($id)
     {
-        //
+        $teacher = User::where("id","=",$id)->first();
+        return view("application.show-teacher",['teacher'=>$teacher]);
     }
 
     /**

@@ -85,21 +85,38 @@
                         </nav>
                     </div>
                     @if(backpack_user()->role==0)
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#partner"
-                               aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Đối tác
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="partner" aria-labelledby="headingOne"
-                                 data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{route('app.partner.index')}}">Hổ sơ các đối tác</a>
-                                    @if(backpack_user()->role==0)
-                                        <a class="nav-link" href="{{route("app.partner.create")}}">Tạo hồ sơ đối tác</a>
-                                    @endif
-                                </nav>
-                            </div>
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#partner"
+                           aria-expanded="false" aria-controls="collapseLayouts">
+                            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                            Đối tác
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="partner" aria-labelledby="headingOne"
+                             data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="{{route('app.partner.index')}}">Hổ sơ các đối tác</a>
+                                @if(backpack_user()->role==0)
+                                    <a class="nav-link" href="{{route("app.partner.create")}}">Tạo hồ sơ đối tác</a>
+                                @endif
+                            </nav>
+                        </div>
+                    @endif
+                    @if(backpack_user()->role==0)
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#teacher"
+                           aria-expanded="false" aria-controls="collapseLayouts">
+                            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                            Giáo viên
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="teacher" aria-labelledby="headingOne"
+                             data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+{{--                                <a class="nav-link" href="{{route('app.partner.index')}}">Hổ sơ các đối tác</a>--}}
+                                @if(backpack_user()->role==0)
+                                    <a class="nav-link" href="{{route("teacher.index")}}">Danh sách giáo viên</a>
+                                @endif
+                            </nav>
+                        </div>
                     @endif
                     <div class="sb-sidenav-menu-heading">Hành động</div>
                     <a class="nav-link" href="{{route("app.log.create")}}">
