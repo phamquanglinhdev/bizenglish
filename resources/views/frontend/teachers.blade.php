@@ -21,13 +21,13 @@
                                         Bạn muốn học gì?
                                     </button>
                                 @endif
-                                @if($i==1)
-                                    <button class="btn btn-origin my-2 w-100 px-0" type="button" data-toggle="collapse"
-                                            data-target="#toggle-{{$i}}" aria-expanded="false"
-                                            aria-controls="toggle-{{$i}}">
-                                        Mức phí
-                                    </button>
-                                @endif
+{{--                                @if($i==1)--}}
+{{--                                    <button class="btn btn-origin my-2 w-100 px-0" type="button" data-toggle="collapse"--}}
+{{--                                            data-target="#toggle-{{$i}}" aria-expanded="false"--}}
+{{--                                            aria-controls="toggle-{{$i}}">--}}
+{{--                                        Mức phí--}}
+{{--                                    </button>--}}
+{{--                                @endif--}}
                                 @if($i==2)
                                     <button class="btn btn-origin my-2 w-100 px-0" type="button" data-toggle="collapse"
                                             data-target="#toggle-{{$i}}" aria-expanded="false"
@@ -103,9 +103,9 @@
                     <div class="col-md-3 col-sm-6-col-12">
                         <img class="img-fluid" alt="noe"
                              src="{{ $data[$key]['avatar'] != null ? $data[$key]['avatar'] : 'https://cloudcone.com/wp-content/uploads/2019/03/blank-avatar.jpg'}}">
-                        <div class="my-2 rounded text-white py-2 text-center bg-origin">{{($data[$key]['price'])/1000}}.000 đ /
-                            Giờ Học
-                        </div>
+{{--                        <div class="my-2 rounded text-white py-2 text-center bg-origin">{{($data[$key]['price'])/1000}}.000 đ /--}}
+{{--                            Giờ Học--}}
+{{--                        </div>--}}
                     </div>
                     <div class="text-dark p-2 col-md-9 col-sm-6 col-12">
                         <div class="row">
